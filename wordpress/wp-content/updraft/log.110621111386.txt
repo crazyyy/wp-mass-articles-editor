@@ -1,0 +1,94 @@
+0000.000 (0) Opened log file at time: Thu, 11 Jun 2020 13:20:05 +0000 on http://wp-mass-articles-editor.local
+0000.641 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.25 WP: 5.4.2 PHP: 7.3.13 (fpm-fcgi, Linux php 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64) MySQL: 10.3.22-MariaDB-1:10.3.22+maria~bionic WPLANG: ru_RU Server: nginx/1.16.1 safe_mode: 0 max_execution_time: 900 memory_limit: 512M (used: 9.9M | 4M) multisite: N openssl: OpenSSL 1.1.1d  10 Sep 2019 mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.661 (0) Free space on disk containing Updraft's temporary directory: 228980.1 MB
+0000.697 (0) Tasks: Backup files: 0 (schedule: unset) Backup DB: 1 (schedule: unset)
+0000.778 (0) Semaphore (d, nammk_options) being initialised
+0001.045 (0) Requesting semaphore lock (d) (apparently not via scheduler)
+0001.166 (0) Set semaphore last lock (d) time to 2020-06-11 13:20:06
+0001.194 (0) Semaphore lock (d) complete
+0001.280 (0) Backup run: resumption=0, nonce=110621111386, file_nonce=110621111386 begun at=1591881605 (2s ago), job type=backup
+0001.324 (0) Scheduling a resumption (1) after 300 seconds (1591881907) in case this run gets aborted
+0001.445 (0) This backup run is not intended for files - skipping
+0001.544 (0) Beginning creation of database dump (WordPress DB)
+0001.611 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0001.775 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `nammk_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\n (truncated - 1250 bytes total)
+0001.812 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0001.916 (0) Table nammk_options: Total expected rows (approximate): 160
+0002.071 (0) Table nammk_options: Total rows added: 159 in 0.12 seconds
+0002.085 (0) Table nammk_options: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_options.table.gz - 120 KB)
+0002.144 (0) Table nammk_users: Total expected rows (approximate): 1
+0002.163 (0) Table nammk_users: Total rows added: 1 in 0.01 seconds
+0002.174 (0) Table nammk_users: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_users.table.gz - 0.5 KB)
+0002.219 (0) Table nammk_usermeta: Total expected rows (approximate): 18
+0002.249 (0) Table nammk_usermeta: Total rows added: 18 in 0.01 seconds
+0002.282 (0) Table nammk_usermeta: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_usermeta.table.gz - 0.9 KB)
+0002.387 (0) Table nammk_commentmeta: Total expected rows (approximate): 0
+0002.402 (0) Table nammk_commentmeta: Total rows added: 0 in 0.00 seconds
+0002.410 (0) Table nammk_commentmeta: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_commentmeta.table.gz - 0.4 KB)
+0002.440 (0) Table nammk_comments: Total expected rows (approximate): 1
+0002.452 (0) Table nammk_comments: Total rows added: 1 in 0.00 seconds
+0002.462 (0) Table nammk_comments: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_comments.table.gz - 0.8 KB)
+0002.493 (0) Table nammk_links: Total expected rows (approximate): 0
+0002.506 (0) Table nammk_links: Total rows added: 0 in 0.00 seconds
+0002.516 (0) Table nammk_links: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_links.table.gz - 0.4 KB)
+0002.550 (0) Table nammk_postmeta: Total expected rows (approximate): 2
+0002.563 (0) Table nammk_postmeta: Total rows added: 2 in 0.00 seconds
+0002.575 (0) Table nammk_postmeta: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_postmeta.table.gz - 0.4 KB)
+0002.607 (0) Table nammk_posts: Total expected rows (approximate): 4
+0002.777 (0) Table nammk_posts: Total rows added: 4 in 0.05 seconds
+0002.810 (0) Table nammk_posts: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_posts.table.gz - 3.9 KB)
+0002.855 (0) Table nammk_term_relationships: Total expected rows (approximate): 1
+0002.874 (0) Table nammk_term_relationships: Total rows added: 1 in 0.00 seconds
+0002.928 (0) Table nammk_term_relationships: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_term_relationships.table.gz - 0.3 KB)
+0003.014 (0) Table nammk_term_taxonomy: Total expected rows (approximate): 1
+0003.116 (0) Table nammk_term_taxonomy: Total rows added: 1 in 0.00 seconds
+0003.166 (0) Table nammk_term_taxonomy: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_term_taxonomy.table.gz - 0.4 KB)
+0003.216 (0) Table nammk_termmeta: Total expected rows (approximate): 0
+0003.231 (0) Table nammk_termmeta: Total rows added: 0 in 0.00 seconds
+0003.248 (0) Table nammk_termmeta: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_termmeta.table.gz - 0.4 KB)
+0003.290 (0) Table nammk_terms: Total expected rows (approximate): 1
+0003.313 (0) Table nammk_terms: Total rows added: 1 in 0.00 seconds
+0003.328 (0) Table nammk_terms: finishing file (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_terms.table.gz - 0.4 KB)
+0003.360 (0) Skipping table (lacks our prefix (nammk_)): urqqw_commentmeta
+0003.372 (0) Skipping table (lacks our prefix (nammk_)): urqqw_comments
+0003.385 (0) Skipping table (lacks our prefix (nammk_)): urqqw_links
+0003.399 (0) Skipping table (lacks our prefix (nammk_)): urqqw_options
+0003.414 (0) Skipping table (lacks our prefix (nammk_)): urqqw_postmeta
+0003.426 (0) Skipping table (lacks our prefix (nammk_)): urqqw_posts
+0003.445 (0) Skipping table (lacks our prefix (nammk_)): urqqw_usermeta
+0003.461 (0) Skipping table (lacks our prefix (nammk_)): urqqw_users
+0003.486 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_options.table.gz (1/20): adding to final database dump
+0003.542 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_users.table.gz (2/20): adding to final database dump
+0003.559 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_usermeta.table.gz (3/20): adding to final database dump
+0003.571 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_commentmeta.table.gz (4/20): adding to final database dump
+0003.583 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_comments.table.gz (5/20): adding to final database dump
+0003.600 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_links.table.gz (6/20): adding to final database dump
+0003.614 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_postmeta.table.gz (7/20): adding to final database dump
+0003.628 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_posts.table.gz (8/20): adding to final database dump
+0003.642 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_term_relationships.table.gz (9/20): adding to final database dump
+0003.657 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_term_taxonomy.table.gz (10/20): adding to final database dump
+0003.675 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_termmeta.table.gz (11/20): adding to final database dump
+0003.690 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db-table-nammk_terms.table.gz (12/20): adding to final database dump
+0003.713 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db.gz: finished writing out complete database file (112 KB)
+0003.810 (0) Total database tables backed up: 12 (backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db.gz, size: 129075, sha1: 7db460edc5ac28d81af5204fb6d24e92f5284393, sha256: a06b14bd5ebf423c714d97f1f038d0261266ffd28e7337494e08d475075c1535)
+0003.872 (0) backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db.gz: db: This file has not yet been successfully uploaded: will queue
+0003.884 (0) Saving backup history. Total backup size: 126 KB
+0003.919 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0003.953 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0003.990 (0) No remote despatch: user chose no remote backup service
+0004.004 (0) Recording as successfully uploaded: backup_2020-06-11-1620_wpmassarticleseditorlocal_110621111386-db.gz
+0004.061 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0004.077 (0) Number of backup sets in history: 1; groups (db): 1
+0004.093 (0) Examining (for databases) backup set with group_id=0, nonce=110621111386, datestamp=1591881605 (Jun 11 2020 13:20:05)
+0004.112 (0) This backup set is the backup set just made, so will not be deleted.
+0004.112 (0) Number of backup sets in history: 1; groups (files): 1
+0004.126 (0) Examining (for files) backup set with nonce=110621111386, datestamp=1591881605 (Jun 11 2020 13:20:05)
+0004.126 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0004.144 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0004.193 (0) Resume backup (110621111386, 0): finish run
+0004.247 (0) Decremented the semaphore (d) by 1
+0004.297 (0) Semaphore (d) unlocked
+0004.310 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0004.380 (0) The backup apparently succeeded and is now complete
+0004.393 (0) No email will/can be sent - the user has not configured an email address.
+0004.406 (0) Резервное копирование успешно завершено
