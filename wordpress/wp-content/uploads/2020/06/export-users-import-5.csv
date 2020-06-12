@@ -1,0 +1,5 @@
+user_login,user_email,source_user_id,user_pass,user_nicename,user_url,user_registered,display_name,role,nickname,first_name
+testuser11,testuser11@gmail.com,,,test user 11 nicename,,,test user 11 displayname,,nickname,first name
+testuser8,testuser8@gmail.com,,,* Без автора
+testuser9,testuser9@gmail.com,,,Олег Якубицкий
+testuser10,testuser10@gmail.com,,,Олег Олег

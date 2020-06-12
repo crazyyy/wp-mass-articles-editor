@@ -1,6 +1,6 @@
 'use strict';
 /* if work with html set TRUE, else - FALSE */
-const htmlOWp = true;
+const htmlOWp = false;
 let env_prod = true;
 
 // TODO: add https://github.com/olegskl/gulp-stylelint
@@ -23,7 +23,7 @@ if (env_prod === true) {
 }
 
 if (htmlOWp === false) {
-  config.path.base.wp = './wordpress/wp-content/themes/' + config.theme + '/';
+  config.path.base.wp = './wordpress/wp-content/plugins/' + config.theme + '/';
   // config.path.base.wp = './html/'; /* only for php files located in html */
   ChangeBasePath(config);
   config.path.base.dest = config.path.base.wp;

@@ -2,9 +2,9 @@
 Contributors: mndpsingh287
 Tags: wp-file-manager, elfinder,file manager, ftp, wp-filemanager,file manager, wp-filemanager, Upload Files, WP File Manager, File Manage, Edit Files, Delete Files, FTP, filemanager, wpfilemanager, ftp, file transfer, update, create, delete, view, rename, editor, Cpanel, Control Panel, Admin, Shortcode, explorer, file explorer, filemanager
 Requires at least: 4.0
-Tested up to: 5.3.2
+Tested up to: 5.4.1
 Requires PHP: 5.2.4
-Stable tag: 5.7
+Stable tag: 6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ file manager provides you ability to edit, delete, upload, download, copy and pa
 
 #### File Manager allows you to edit, delete, upload, download, zip, copy and paste files and folders directly from the Wordpress backend. Don’t bother with FTP to manage and move your files from location to location. The most powerful, flexible, and easiest Wordpress file management solution ever built!
 
-Multi Languages Added 
+https://www.youtube.com/watch?v=7NswPb5WikA
        
 = Key Features in File Manager free Version Plugin =
 
@@ -53,6 +53,7 @@ Key Features in the Free File Manager plugin include:
 * **Thumbnails**: Thumbnails for all types of image files
 * **Upload to Media Library**: We have now included the ability to enable images, pdf's, and zip files to be uploaded to you folders and as well be available via the native Wordpress Media Library
 * **Backup/Restore**: Backup and restore themes files, plugins files,uploads folder and db data on server.
+* **Multi Languages Added
 
 = Key Features in File Manager Pro Editions =
 
@@ -134,6 +135,34 @@ Yes, You can achieve any files and folders as zip then simple download it. Pleas
 
 
 == Changelog ==
+
+= 6.4 (25th May, 2020) =
+
+* $ confliction fixes
+
+= 6.3 (22nd May, 2020) =
+
+* Files extract issues fixes
+
+= 6.2 (15th May, 2020) =
+
+* jQuery confliction fixes
+
+= 6.1 (14th May, 2020) =
+
+* Compatibility issues
+
+= 6.0 (14th May, 2020) =
+
+* Google doc preview feature added and Library Updates - Major Update
+
+= 5.9 (13th APR, 2020) =
+
+* Fixed Errors Deprecated Unparenthesized
+
+= 5.8 (31st MARCH, 2020) =
+
+* Tested with Wordpress 5.4 version.
 
 = 5.7 (23rd JAN, 2020) =
 

@@ -1,0 +1,4 @@
+user_login,user_email,source_user_id,user_pass,user_nicename
+testuser4,testuser4@gmail.com,,,test user 4 nicename
+testuser5,testuser5@gmail.com,,,* Без автора
+Олег Якубицкий,testuser6@gmail.com,,,test user 6 nicename

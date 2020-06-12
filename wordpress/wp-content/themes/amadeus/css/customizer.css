@@ -1,0 +1,74 @@
+/* Customizer styles */
+
+.customize-control {
+	padding: 15px 0;
+	border-bottom: 1px dashed #c3c3c3;
+}
+
+.customize-control:last-of-type {
+	border-bottom: 0;
+}
+
+.accordion-section h3::before {
+	float: left;
+	margin-right: 5px;
+	color: #70787e;
+	font-family: Fontawesome;
+	content: "\f10c";
+}
+
+#accordion-panel-amadeus_header_panel h3:before {
+	content: "\f108";
+}
+
+#accordion-section-title_tagline h3:before {
+	content: "\f032";
+}
+
+#accordion-section-amadeus_banner h3:before {
+	content: "\f022";
+}
+
+#accordion-section-amadeus_menu h3:before {
+	content: "\f0c9";
+}
+
+#accordion-section-header_image h3:before {
+	content: "\f03e";
+}
+
+#accordion-section-colors h3:before {
+	content: "\f042";
+}
+
+#accordion-section-background_image h3:before {
+	content: "\f03e";
+}
+
+#accordion-section-nav h3:before {
+	content: "\f0c9";
+}
+
+#accordion-panel-widgets h3:before {
+	content: "\f085";
+}
+
+#accordion-section-static_front_page h3:before {
+	content: "\f15b";
+}
+
+#accordion-section-blog_options h3:before {
+	content: "\f040";
+}
+
+#accordion-section-amadeus_fonts h3:before {
+	content: "\f031";
+}
+
+.amadeus-theme-info {
+	text-align: center;
+}
+
+.amadeus-theme-info hr {
+	margin: 10px auto;
+}

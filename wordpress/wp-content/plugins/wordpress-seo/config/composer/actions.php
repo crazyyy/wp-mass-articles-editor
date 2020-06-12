@@ -5,10 +5,11 @@
  * @package Yoast\YoastSEO\Composer
  */
 
-namespace Yoast\WP\Free\Composer;
+namespace Yoast\WP\SEO\Composer;
 
 use Composer\Script\Event;
-use Yoast\WP\Free\Dependency_Injection\Container_Compiler;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Yoast\WP\SEO\Dependency_Injection\Container_Compiler;
 
 /**
  * Class to handle Composer actions and events.
@@ -22,7 +23,7 @@ class Actions {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @param \Composer\Script\Event $event Composer event that triggered this script.
+	 * @param Event $event Composer event that triggered this script.
 	 *
 	 * @return void
 	 */
@@ -30,7 +31,13 @@ class Actions {
 		$io = $event->getIO();
 
 		if ( ! $event->isDevMode() ) {
-			$io->write( 'Not prefixing dependencies.' );
+			$io->write( 'Not prefixing dependencies, due to not being in dev move.' );
+
+			return;
+		}
+
+		if ( ! \file_exists( __DIR__ . '/../../vendor/bin/php-scoper' ) ) {
+			$io->write( 'Not prefixing dependencies, due to PHP scoper not being installed' );
 
 			return;
 		}
@@ -48,12 +55,18 @@ class Actions {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @param \Composer\Script\Event $event Composer event that triggered this script.
+	 * @param Event $event Composer event that triggered this script.
 	 *
 	 * @return void
 	 */
 	public static function compile_dependency_injection_container( Event $event ) {
 		$io = $event->getIO();
+
+		if ( ! \class_exists( ContainerBuilder::class ) ) {
+			$io->write( 'Not compiling dependency injection container, due to the container builder not being installed' );
+
+			return;
+		}
 
 		$io->write( 'Compiling the dependency injection container...' );
 
@@ -83,7 +96,7 @@ class Actions {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @param \Composer\Script\Event $event Composer event that triggered this script.
+	 * @param Event $event Composer event that triggered this script.
 	 *
 	 * @return void
 	 */

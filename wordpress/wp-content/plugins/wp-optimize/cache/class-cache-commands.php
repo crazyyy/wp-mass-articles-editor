@@ -34,45 +34,79 @@ class WP_Optimize_Cache_Commands {
 		);
 
 		$enabled = false;
+		$disabled = false;
 		$return = array();
 		$previous_settings = WPO_Cache_Config::instance()->get();
 
-		// disable cache.
-		if (empty($data['cache-settings']['enable_page_caching'])) {
-			WPO_Page_Cache::instance()->disable();
+		// Attempt to change current status if required
+		if (isset($previous_settings['enable_page_caching']) && $previous_settings['enable_page_caching'] != $data['cache-settings']['enable_page_caching']) {
+			// Disable cache.
+			if (empty($data['cache-settings']['enable_page_caching'])) {
+				$disabled = WPO_Page_Cache::instance()->disable();
+				// Disabling failed
+				if ($disabled && is_wp_error($disabled)) {
+					// If disabling failed, we re-enable whatever was disabled, to make sure nothing breaks.
+					if ($previous_settings['enable_page_caching']) WPO_Page_Cache::instance()->enable(true);
+					$return['error'] = array(
+						'code' => $disabled->get_error_code(),
+						'message' => $disabled->get_error_message()
+					);
+				} elseif (WPO_Page_Cache::instance()->has_warnings()) {
+					$return['warnings_label'] = __('Page caching was disabled, but with some warnings:', 'wp-optimize');
+					$return['warnings'] = WPO_Page_Cache::instance()->get_errors('warning');
+				}
+			} else {
+				// we need to rebuild advanced-cache.php and add WP_CACHE to wp-config.
+				$enabled = WPO_Page_Cache::instance()->enable(true);
+				// Enabling failed
+				if (is_wp_error($enabled)) {
+					// disable everything, to avoid half enabled things
+					WPO_Page_Cache::instance()->disable();
+					$return['error'] = array(
+						'code' => $enabled->get_error_code(),
+						'message' => $enabled->get_error_message()
+					);
+
+					if (WPO_Page_Cache::instance()->advanced_cache_file_writing_error) {
+						$return['advanced_cache_file_writing_error'] = true;
+						$return['advanced_cache_file_content'] = WPO_Page_Cache::instance()->advanced_cache_file_content;
+					}
+				} elseif (WPO_Page_Cache::instance()->has_warnings()) {
+					$return['warnings_label'] = __('Page caching was enabled, but with some warnings:', 'wp-optimize');
+					$return['warnings'] = WPO_Page_Cache::instance()->get_errors('warning');
+				}
+			}
+			// Override enabled setting value
+			$data['cache-settings']['enable_page_caching'] = ($enabled && !is_wp_error($enabled)) || ($previous_settings['enable_page_caching'] && is_wp_error($disabled));
 		} else {
-			// we need to rebuild advanced-cache.php and add WP_CACHE to wp-config.
-			$enabled = WPO_Page_Cache::instance()->enable(true);
+			$data['cache-settings']['enable_page_caching'] = $previous_settings['enable_page_caching'];
+			$enabled = $previous_settings['enable_page_caching'];
 		}
 
-		if (is_wp_error($enabled)) {
-			// disable everything, to avoid half enabled things
-			WPO_Page_Cache::instance()->disable();
-			// deactivate the setting
-			$data['cache-settings']['enable_page_caching'] = null;
-			$return['error'] = array(
-				'code' => $enabled->get_error_code(),
-				'message' => $enabled->get_error_message()
-			);
-		}
-		
-		$skip_if_no_file_yet = (!$enabled || is_wp_error($enabled));
+		$skip_if_no_file_yet = !$enabled || is_wp_error($enabled);
 		$save_settings_result = WPO_Cache_Config::instance()->update($data['cache-settings'], $skip_if_no_file_yet);
 
-		if ($save_settings_result) {
+		if ($save_settings_result && !is_wp_error($save_settings_result)) {
 			WP_Optimize_Page_Cache_Preloader::instance()->cache_settings_updated($data['cache-settings'], $previous_settings);
+			$return['result'] = $save_settings_result;
+		} else {
+			// Saving the settings returned an error
+			if (is_wp_error($save_settings_result)) {
+				if (isset($return['error'])) {
+					$return['error']['message'] .= "\n\n".$save_settings_result->get_error_message();
+				} else {
+					$return['error'] = array(
+						'code' => $save_settings_result->get_error_code(),
+						'message' => $save_settings_result->get_error_message()
+					);
+				}
+			}
+			$return['result'] = false;
 		}
 
-		$return['result'] = $save_settings_result;
-		$return['enabled'] = !empty($data['cache-settings']['enable_page_caching']);
-
-		if (is_wp_error($enabled) && WPO_Page_Cache::instance()->advanced_cache_file_writing_error) {
-			$return['advanced_cache_file_writing_error'] = true;
-			$return['advanced_cache_file_content'] = WPO_Page_Cache::instance()->advanced_cache_file_content;
-		}
+		$return['enabled'] = ($enabled && !is_wp_error($enabled)) || ($previous_settings['enable_page_caching'] && is_wp_error($disabled));
 
 		return $return;
-
 	}
 
 	/**
@@ -83,8 +117,7 @@ class WP_Optimize_Cache_Commands {
 	public function get_status_info() {
 		$status = array();
 
-		$settings = WPO_Cache_Config::instance()->get();
-		$status[] = $settings['enable_page_caching'] ? __('Caching is enabled', 'wp-optimize') : __('Caching is disabled', 'wp-optimize');
+		$status[] = WPO_Page_Cache::instance()->is_enabled() ? __('Caching is enabled', 'wp-optimize') : __('Caching is disabled', 'wp-optimize');
 
 		$preloader_status = WP_Optimize_Page_Cache_Preloader::instance()->get_status_info();
 		$status[] = sprintf(__('Current cache size: %s', 'wp-optimize'), $preloader_status['size']);

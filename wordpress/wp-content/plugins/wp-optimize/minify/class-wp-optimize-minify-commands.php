@@ -11,34 +11,55 @@ class WP_Optimize_Minify_Commands {
 	/**
 	 * List all cache files
 	 *
+	 * @param array $data - The $_POST data
 	 * @return array
 	 */
-	public function get_minify_cached_files() {
-		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => 'PHP version not met');
-		return WP_Optimize_Minify_Cache_Functions::get_cached_files(false);
+	public function get_minify_cached_files($data = array()) {
+		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => __('WP-Optimize Minify requires a higher PHP version', 'wp-optimize'));
+		$stamp = isset($data['stamp']) ? $data['stamp'] : 0;
+		$files = WP_Optimize_Minify_Cache_Functions::get_cached_files($stamp, false);
+		$files['js'] = array_map(array('WP_Optimize_Minify_Cache_Functions', 'format_file_logs'), $files['js']);
+		$files['css'] = array_map(array('WP_Optimize_Minify_Cache_Functions', 'format_file_logs'), $files['css']);
+		return $files;
 	}
 
 	/**
 	 * Removes the entire cache dir.
 	 * Use with caution, as cached html may still reference those files.
 	 *
-	 * @return boolean|array
+	 * @return array
 	 */
 	public function purge_all_minify_cache() {
-		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => 'PHP version not met');
+		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => __('WP-Optimize Minify requires a higher PHP version', 'wp-optimize'));
 		WP_Optimize_Minify_Cache_Functions::purge();
-		return true;
+		WP_Optimize_Minify_Cache_Functions::cache_increment();
+		$others = WP_Optimize_Minify_Cache_Functions::purge_others();
+		$files = $this->get_minify_cached_files();
+		$message = array(
+			__('The minification cache was deleted.', 'wp-optimize'),
+			strip_tags($others, '<strong>'),
+		);
+		$message = array_filter($message);
+		return array(
+			'success' => true,
+			'message' => implode("\n", $message),
+			'files' => $files
+		);
 	}
 
 	/**
 	 * Forces a new Cache to be built
 	 *
-	 * @return boolean|array
+	 * @return array
 	 */
 	public function minify_increment_cache() {
-		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => 'PHP version not met');
+		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => __('WP-Optimize Minify requires a higher PHP version', 'wp-optimize'));
 		WP_Optimize_Minify_Cache_Functions::cache_increment();
-		return true;
+		$files = $this->get_minify_cached_files();
+		return array(
+			'success' => true,
+			'files' => $files
+		);
 	}
 
 	/**
@@ -47,12 +68,13 @@ class WP_Optimize_Minify_Commands {
 	 * @return array
 	 */
 	public function purge_minify_cache() {
-		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => 'PHP version not met');
+		if (!WPO_MINIFY_PHP_VERSION_MET) return array('error' => __('WP-Optimize Minify requires a higher PHP version', 'wp-optimize'));
 		// deletes temp files and old caches incase CRON isn't working
 		WP_Optimize_Minify_Cache_Functions::cache_increment();
 		$state = WP_Optimize_Minify_Cache_Functions::purge_temp_files();
 		$old = WP_Optimize_Minify_Cache_Functions::purge_old();
 		$others = WP_Optimize_Minify_Cache_Functions::purge_others();
+		$files = $this->get_minify_cached_files();
 
 		$notice = array(
 			__('All caches from WP-Optimize Minify have been purged.', 'wp-optimize'),
@@ -65,8 +87,9 @@ class WP_Optimize_Minify_Commands {
 			'result' => 'caches cleared',
 			'others' => $others,
 			'state' => $state,
-			'notice' => $notice,
-			'old' => $old
+			'message' => $notice,
+			'old' => $old,
+			'files' => $files
 		);
 	}
 
@@ -100,19 +123,37 @@ class WP_Optimize_Minify_Commands {
 				'error' => 'failed to save'
 			);
 		}
-		WP_Optimize_Minify_Cache_Functions::cache_increment();
-		WP_Optimize_Minify_Cache_Functions::purge_others();
+		$purged = $this->purge_minify_cache();
 		return array(
-			'success' => true
+			'success' => true,
+			'files' => $purged['files']
 		);
 	}
 
 	/**
 	 * Hide the information notice for the current user
 	 *
-	 * @return boolean
+	 * @return array
 	 */
 	public function hide_minify_notice() {
-		return update_user_meta(get_current_user_id(), 'wpo-hide-minify-information-notice', true);
+		return array(
+			'success' => update_user_meta(get_current_user_id(), 'wpo-hide-minify-information-notice', true)
+		);
+	}
+
+	/**
+	 * Get the current status
+	 *
+	 * @return array
+	 */
+	public function get_status() {
+		$config = wp_optimize_minify_config()->get();
+		return array(
+			'enabled' => $config['enabled'],
+			'js' => $config['enable_js'],
+			'css' => $config['enable_css'],
+			'html' => $config['html_minification'],
+			'stats' => $this->get_minify_cached_files()
+		);
 	}
 }

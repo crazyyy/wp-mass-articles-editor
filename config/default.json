@@ -1,6 +1,6 @@
 {
-  "domain": "wp-framework.local",
-  "theme": "wp-framework",
+  "domain": "wp-mass-articles-editor.local",
+  "theme": "wp-mass-articles-editor",
   "path": {
     "base": {
       "src":"assets/",

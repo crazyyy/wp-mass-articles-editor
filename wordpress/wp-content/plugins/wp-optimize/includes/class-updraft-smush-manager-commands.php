@@ -119,6 +119,7 @@ class Updraft_Smush_Manager_Commands extends Updraft_Task_Manager_Commands_1_0 {
 
 		$response['status'] = true;
 		$response['operation'] = 'restore';
+		$response['blog_id'] = $blog_id;
 		$response['image']	 = $image_id;
 		$response['success'] = $success;
 		$response['summary'] = __('The image was restored successfully', 'wp-optimize');
@@ -423,7 +424,7 @@ class Updraft_Smush_Manager_Commands extends Updraft_Task_Manager_Commands_1_0 {
 	 * @return array
 	 */
 	public function clean_all_backup_images() {
-		$upload_dir = wp_get_upload_dir();
+		$upload_dir = wp_upload_dir(null, false);
 		$base_dir = $upload_dir['basedir'];
 
 		$this->task_manager->clear_backup_images_directory($base_dir, 0);

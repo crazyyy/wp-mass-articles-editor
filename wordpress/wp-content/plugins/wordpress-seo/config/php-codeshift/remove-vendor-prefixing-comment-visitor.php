@@ -5,7 +5,7 @@
  * @package Yoast\YoastSEO\PHP_CodeShift
  */
 
-namespace Yoast\WP\Free\PHP_CodeShift;
+namespace Yoast\WP\SEO\PHP_CodeShift;
 
 use PhpParser\Comment\Doc;
 use PhpParser\Node;
@@ -19,9 +19,9 @@ class Remove_Vendor_Prefixing_Comment_Visitor extends NodeVisitorAbstract {
 	/**
 	 * Removes vendor prefixes from comments.
 	 *
-	 * @param \PhpParser\Node $node The node being visited.
+	 * @param Node $node The node being visited.
 	 *
-	 * @return \PhpParser\Node The possibly modified node.
+	 * @return Node The possibly modified node.
 	 */
 	public function leaveNode( Node $node ) {
 		$comment = $node->getDocComment();

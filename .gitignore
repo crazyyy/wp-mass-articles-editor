@@ -1,5 +1,5 @@
 /.hg
-
+/htdocs
 *.log
 *.map
 *.orig
@@ -25,6 +25,7 @@ Desktop.ini
 .Spotlight-V100
 .Trashes
 
+/htdocs
 node_modules
 node_modules/**
 node_modules_bck

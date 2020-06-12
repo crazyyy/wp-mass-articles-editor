@@ -21,12 +21,16 @@ if (function_exists('do_action')) {
 	do_action('wpo_cache_extensions_loaded');
 }
 
-add_filter('wpo_restricted_cache_page_type', 'wpo_restricted_cache_page_type');
-
 $no_cache_because = array();
 
 // check if we want to cache current page.
-$restricted_cache_page_type = apply_filters('wpo_restricted_cache_page_type', false);
+if (function_exists('add_filter') && function_exists('apply_filters')) {
+	add_filter('wpo_restricted_cache_page_type', 'wpo_restricted_cache_page_type');
+	$restricted_cache_page_type = apply_filters('wpo_restricted_cache_page_type', false);
+} else {
+	// On old WP versions, you can't filter the result
+	$restricted_cache_page_type = wpo_restricted_cache_page_type(false);
+}
 
 if ($restricted_cache_page_type) {
 	$no_cache_because[] = $restricted_cache_page_type;
@@ -112,9 +116,16 @@ if (!empty($_GET)) {
 }
 
 if (!empty($no_cache_because)) {
+	$message = implode(', ', $no_cache_because);
+
+	// Add http header
+	if (!defined('DOING_CRON') || !DOING_CRON) {
+		wpo_cache_add_nocache_http_header($message);
+	}
+
 	// Only output if the user has turned on debugging output
 	if (((defined('WP_DEBUG') && WP_DEBUG) || isset($_GET['wpo_cache_debug'])) && (!defined('DOING_CRON') || !DOING_CRON)) {
-		wpo_cache_add_footer_output("Page not served from cache because: ".implode(', ', array_filter($no_cache_because, 'htmlspecialchars')));
+		wpo_cache_add_footer_output("Page not served from cache because: ".htmlspecialchars($message));
 	}
 	return;
 }

@@ -335,6 +335,11 @@ h3.fm-topoption .switch_txt_theme {
 	display: none;
 }
 
+.elfinder-info-tb tr:last-child,
+.elfinder-info-tb tr:nth-last-child(2) {
+	display: none;
+}
+
 @-webkit-keyframes moving {
 	0% {
 		margin-left: 0;
@@ -361,26 +366,13 @@ h3.fm-topoption .switch_txt_theme {
 	position: absolute !important;
 }
 
-.elfinder-quicklook-titlebar-icon .ui-icon.ui-icon-closethick {
-	margin: 0px 1px 0 0 !important;
+.mk_elfinder_share_button .button {
+	font-size: 12px;
+	padding: 2px 15px;
+	height: auto;
+	line-height: normal;
+	min-height: auto;
 }
-
-.elfinder-quicklook-titlebar-icon .ui-front.ui-icon.ui-icon-plusthick.elfinder-icon-full {
-	margin: -18px 26px 0 1px;
-}
-
-.elfinder-quicklook-titlebar-icon .ui-icon.ui-icon-minusthick {
-	margin: -18px 24px 0px 3px !important;
-}
-
-.mac .elfinder-quicklook-titlebar-icon .ui-front.ui-icon.ui-icon-plusthick.elfinder-icon-full {
-	margin: -18px 26px 0 23px;
-}
-
-.mac .elfinder-quicklook-titlebar-icon span.ui-front.ui-icon.ui-icon-minusthick.elfinder-icon-minimize {
-	margin: -18px 0px 0 23px !important;
-}
-
 .fm_msg_popup {
 	display: none;
 	position: fixed;

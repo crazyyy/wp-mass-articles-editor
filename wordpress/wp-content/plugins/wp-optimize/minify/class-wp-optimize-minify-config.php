@@ -99,7 +99,7 @@ class WP_Optimize_Minify_Config {
 	 */
 	public function get_defaults() {
 		$blacklist = array('/html5shiv.js', '/html5shiv-printshiv.min.js', '/excanvas.js', '/avada-ie9.js', '/respond.js', '/respond.min.js', '/selectivizr.js', '/Avada/assets/css/ie.css', '/html5.js', '/IE9.js', '/fusion-ie9.js', '/vc_lte_ie9.min.css', '/old-ie.css', '/ie.css', '/vc-ie8.min.css', '/mailchimp-for-wp/assets/js/third-party/placeholders.min.js', '/assets/js/plugins/wp-enqueue/min/webfontloader.js', '/a.optnmstr.com/app/js/api.min.js', '/pixelyoursite/js/public.js', '/assets/js/wcdrip-drip.js', '/instantpage.js');
-		$ignore_list = array('/genericons.css', '/Avada/assets/js/main.min.js', '/woocommerce-product-search/js/product-search.js', '/includes/builder/scripts/frontend-builder-scripts.js', '/assets/js/jquery.themepunch.tools.min.js', '/js/TweenMax.min.js', '/jupiter/assets/js/min/full-scripts', '/wp-content/themes/Divi/core/admin/js/react-dom.production.min.js', '/LayerSlider/static/layerslider/js/greensock.js', '/themes/kalium/assets/js/main.min.js', '/elementor/assets/js/common.min.js', '/elementor/assets/js/frontend.min.js', '/elementor-pro/assets/js/frontend.min.js');
+		$ignore_list = array('/genericons.css', '/Avada/assets/js/main.min.js', '/woocommerce-product-search/js/product-search.js', '/includes/builder/scripts/frontend-builder-scripts.js', '/assets/js/jquery.themepunch.tools.min.js', '/js/TweenMax.min.js', '/jupiter/assets/js/min/full-scripts', '/wp-content/themes/Divi/core/admin/js/react-dom.production.min.js', '/LayerSlider/static/layerslider/js/greensock.js', '/themes/kalium/assets/js/main.min.js', '/elementor/assets/js/common.min.js', '/elementor/assets/js/frontend.min.js', '/elementor-pro/assets/js/frontend.min.js', '/wp-includes/js/mediaelement/wp-mediaelement.min.js');
 		$defaults = array(
 			// dev tab checkboxes
 			'debug' => false,
@@ -113,7 +113,7 @@ class WP_Optimize_Minify_Config {
 			'critical_path_css_is_front_page' => '',
 			// settings tab checkboxes
 			'preserve_settings_on_uninstall' => true,
-			'fix_editor' => false,
+			'disable_when_logged_in' => false,
 			'default_protocol' => 'dynamic', // dynamic, http, https
 			'html_minification' => true,
 			'clean_header_one' => false,
@@ -124,12 +124,14 @@ class WP_Optimize_Minify_Config {
 			'fawesome_method' => 'inline', // inline, async, exclude
 			'enable_css' => true,
 			'enable_css_minification' => true,
-			'skip_cssorder' => false,
+			'enable_merging_of_css' => true,
 			'remove_print_mediatypes' => false,
 			'inline_css' => false,
 			'enable_js' => true,
 			'enable_js_minification' => true,
+			'enable_merging_of_js' => true,
 			'enable_defer_js' => false,
+			'enable_js_trycatch' => false,
 			'exclude_defer_login' => false,
 			'defer_for_pagespeed' => false,
 			'cdn_url' => '',
@@ -137,7 +139,6 @@ class WP_Optimize_Minify_Config {
 
 			'async_css' => '',
 			'async_js' => '',
-			'skip_cssorder' => true,
 			'disable_css_inline_merge' => true,
 			'ualist' => array('x11.*fox\/54', 'oid\s4.*xus.*ome\/62', 'x11.*ome\/62', 'oobot', 'ighth', 'tmetr', 'eadles', 'ingdo'),
 			'blacklist' => implode("\n", $blacklist),
