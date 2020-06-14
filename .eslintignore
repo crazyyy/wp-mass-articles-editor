@@ -1,3 +1,6 @@
-node_modules/**
 .git
 .hg
+**/*.min.js
+**/vendor/*
+**/dist/*
+**/node_modules/*

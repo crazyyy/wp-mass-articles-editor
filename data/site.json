@@ -1,0 +1,25 @@
+{
+  "siteName": "Your brand new website s",
+  "siteDescription": "Your brand new website description.",
+  "nav": [{
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "About",
+      "href": "/about.html"
+    },
+    {
+      "title": "GitHub",
+      "href": "https://github.com/maliMirkec/starter-project"
+    },
+    {
+      "title": "Contact",
+      "href": "mailto:me@silvestar.codes?Subject=Contact[SP]"
+    },
+    {
+      "title": "Contact 22",
+      "href": "#"
+    }
+  ]
+}

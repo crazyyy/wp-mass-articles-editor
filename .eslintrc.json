@@ -1,20 +1,21 @@
 {
-    "env": {
-        "browser": true,
-        "es2020": true,
-        "node": true
-    },
-    "extends": [
-        "plugin:vue/essential",
-        "standard"
-    ],
-    "parserOptions": {
-        "ecmaVersion": 11,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "vue"
-    ],
-    "rules": {
-    }
+  "extends": ["airbnb-base"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "no-console": "off",
+    "no-plusplus": "off"
+  },
+  "globals": {
+    "requestAnimationFrame": true,
+    "sessionStorage": true
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "amd": true,
+    "commonjs": true
+  }
 }

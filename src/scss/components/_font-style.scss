@@ -1,0 +1,15 @@
+// Use this if no web font is present in design
+// body {
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+// }
+
+// Use this if using web fonts
+body {
+  font-family: $font-alpha, sans-serif;
+  font-display: optional;
+  line-height: $line-height;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+}
