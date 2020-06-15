@@ -1,3 +1,9 @@
+### Todo
+
+- create plugin example 
+- create theme example 
+- use DOTENV for project https://github.com/motdotla/dotenv
+
 before start run "npm install"
 
 .dblock - @extend .dblock - для всяких :before/:after элементов

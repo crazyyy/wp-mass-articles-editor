@@ -25,6 +25,7 @@ module.exports = {
       },
       {
         // Exposes jQuery for use outside Webpack build
+        // https://webpack.js.org/loaders/expose-loader/
         test: require.resolve('jquery'),
         use: [{
           loader: 'expose-loader',

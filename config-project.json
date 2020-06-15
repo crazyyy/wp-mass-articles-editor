@@ -10,9 +10,9 @@
     "pug": true,
     "data": true,
     "inline": true,
-    "src": "html",
+    "src": "views",
     "dist": "",
-    "minify": true,
+    "minify": false,
     "lint": true
   },
   "css": {

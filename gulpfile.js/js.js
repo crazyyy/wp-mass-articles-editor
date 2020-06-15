@@ -28,8 +28,7 @@ if (!global.config.js.lint) {
 }
 
 webpackConfig.devtool = (global.config.js.sourcemaps) ? 'sourcemaps' : '';
-//console.log('eslint.failAfterError()')
-//console.log(eslint.failAfterError())
+
 // Will process JS files
 function jsStart() {
   return src(helpers.trim(`${helpers.source()}/${global.config.js.src}/*.js`))
@@ -77,7 +76,7 @@ function jsStartProd(cb) {
 
 // When JS file is changed, it will process JS file, too
 function jsListen() {
-  return watch(helpers.trim(`${helpers.source()}/${global.config.js.src}/*.js`), global.config.watchConfig, jsStart, global.bs.reload);
+  return watch(helpers.trim(`${helpers.source()}/${global.config.js.src}/**/*.js`), global.config.watchConfig, jsStart, global.bs.reload);
 }
 
 exports.js = {

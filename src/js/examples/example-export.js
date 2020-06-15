@@ -1,3 +1,4 @@
+// https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Statements/export
 // *** Example Export >>> //
 function cube(x) {
   return x * x * x;
