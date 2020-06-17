@@ -86,28 +86,74 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/examples/example-promise.js":
-/*!********************************************!*\
-  !*** ./src/js/examples/example-promise.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ExamplePromise; });
-// todo example fetch https://googlechrome.github.io/samples/fetch-api/fetch-post.html
-// https://developer.github.com/v3/
-// https://cran.r-project.org/web/packages/jsonlite/vignettes/json-apis.html
-// https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
-function ExamplePromise() {
-  var URLs = ['https://api.github.com/users/crazyyy/repos', 'https://api.github.com/repos/vmg/redcarpet/issues?state=open', 'https://api.github.com/repos/vmg/redcarpet/issues?state=closed'];
-  var requests = URLs.map(function (url) {
-    return fetch(url);
-  });
-  var responses = Promise.all(requests);
-  console.log(responses);
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
 }
+
+module.exports = _classCallCheck;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/typeof.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
 
 /***/ }),
 
@@ -121,63 +167,8 @@ function ExamplePromise() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _libs_utils_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./libs/utils/index */ "./src/js/libs/utils/index.js");
-/* harmony import */ var _examples_example_promise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./examples/example-promise */ "./src/js/examples/example-promise.js");
-
-
-var testUndf;
-var testNull = null;
-var testarr = [1, 2, 3, 4];
-var testObj = {
-  x: 22,
-  y: '33',
-  xyz: 'contenta'
-};
-
-var testFunc = function testFunc() {
-  console.log('test function');
-};
-
-var testSting = 'lorem ipsum';
-var testNum = 777;
-var testBool = false;
-var testBoolTrue = true;
-var testDate = new Date();
-var symbol2 = Symbol(42);
-var regexp1 = /ab+c/i;
-var regexp2 = new RegExp('ab+c', 'i');
-var regexp3 = new RegExp(/ab+c/, 'i');
-var testError = new Error('Ой-ой!');
-var utils = new _libs_utils_index__WEBPACK_IMPORTED_MODULE_0__["default"]('new name');
-utils.warn('hire');
-utils.log(utils.name);
-
-function sanitise(x) {
-  if (isNaN(x)) {
-    return NaN;
-  }
-
-  return x;
-}
-
-utils.log(testUndf);
-utils.log(testNull);
-utils.log(testarr);
-utils.log(testObj);
-utils.log(testFunc);
-utils.log(testSting);
-utils.log(testNum);
-utils.log(sanitise('NotANumber'));
-utils.log(testBool);
-utils.log(testBoolTrue);
-utils.log(testDate);
-utils.log(symbol2);
-utils.log(regexp1);
-utils.log(regexp2);
-utils.log(regexp3);
-utils.log(testError);
-utils.err(utils.name);
-utils.ok(utils.name);
-Object(_examples_example_promise__WEBPACK_IMPORTED_MODULE_1__["default"])(); //
+ // .log(), .err(), .warn(), ok()
+//
 // (function () {
 //  let method;
 //  const noop = function noop() {};
@@ -387,7 +378,8 @@ Object(_examples_example_promise__WEBPACK_IMPORTED_MODULE_1__["default"])(); //
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
 
 var CheckDataType = {
   isNull: function isNull(arg) {
@@ -401,7 +393,7 @@ var CheckDataType = {
   },
   isPrimitive: function isPrimitive(arg) {
     return typeof arg === "string" || typeof arg === "number" || // $flow-disable-line
-    _typeof(arg) === "symbol" || typeof arg === "boolean";
+    _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arg) === "symbol" || typeof arg === "boolean";
   },
   isBoolean: function isBoolean(arg) {
     return typeof arg === "boolean";
@@ -419,16 +411,16 @@ var CheckDataType = {
     return typeof arg === "function";
   },
   isArray: function isArray(arg) {
-    return arg && _typeof(arg) === "object" && arg.constructor === Array;
+    return arg && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arg) === "object" && arg.constructor === Array;
   },
   isObject: function isObject(arg) {
-    return arg && _typeof(arg) === "object" && arg.constructor === Object;
+    return arg && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arg) === "object" && arg.constructor === Object;
   },
   isSymbol: function isSymbol(arg) {
-    return _typeof(arg) === "symbol";
+    return _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arg) === "symbol";
   },
   isRegExp: function isRegExp(arg) {
-    return arg && _typeof(arg) === "object" && arg.constructor === RegExp;
+    return arg && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(arg) === "object" && arg.constructor === RegExp;
   },
   isError: function isError(arg) {
     return arg instanceof Error && typeof arg.message !== "undefined";
@@ -485,24 +477,23 @@ var CheckDataType = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Utils; });
-/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logging */ "./src/js/libs/utils/logging.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logging */ "./src/js/libs/utils/logging.js");
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
 var Utils = /*#__PURE__*/function () {
-  function Utils(name) {
-    _classCallCheck(this, Utils);
+  function Utils() {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Utils);
 
-    this.name = name;
-    this.logging = new _logging__WEBPACK_IMPORTED_MODULE_0__["Logging"]();
+    this.logging = new _logging__WEBPACK_IMPORTED_MODULE_2__["Logging"]();
   }
 
-  _createClass(Utils, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Utils, [{
     key: "log",
     value: function log(message) {
       this.logging.showMessage(message);
@@ -521,25 +512,6 @@ var Utils = /*#__PURE__*/function () {
     key: "warn",
     value: function warn(message) {
       this.logging.showWarn(message);
-    }
-  }, {
-    key: "name",
-    get: function get() {
-      return this._name;
-    },
-    set: function set(value) {
-      if (value.length < 4) {
-        console.log('Имя слишком короткое.');
-        return;
-      }
-
-      this._name = value;
-    }
-  }], [{
-    key: "exampleStaticLog",
-    value: function exampleStaticLog(message) {
-      Utils.exampleStaticLog('exampleStaticLog');
-      console.log(message);
     }
   }]);
 
@@ -560,12 +532,12 @@ var Utils = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Logging", function() { return Logging; });
-/* harmony import */ var _check_datatype_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./check-datatype.js */ "./src/js/libs/utils/check-datatype.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _check_datatype_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./check-datatype.js */ "./src/js/libs/utils/check-datatype.js");
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
@@ -574,7 +546,7 @@ var Logging = /*#__PURE__*/function () {
     var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-    _classCallCheck(this, Logging);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Logging);
 
     this.title = title;
     this.type = type;
@@ -584,7 +556,7 @@ var Logging = /*#__PURE__*/function () {
     this.styleRedBg = 'color: white; background-color: #D33F49';
   }
 
-  _createClass(Logging, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Logging, [{
     key: "getCurrentTimestamp",
     value: function getCurrentTimestamp() {
       var currentdate = new Date();
@@ -593,25 +565,25 @@ var Logging = /*#__PURE__*/function () {
   }, {
     key: "showMessage",
     value: function showMessage(message) {
-      console.log("%c ".concat(this.getCurrentTimestamp(), " Notice: "), this.styleBlueBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_0__["default"].getTypeOf(message), ")"));
+      console.log("%c ".concat(this.getCurrentTimestamp(), " Notice: "), this.styleBlueBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_2__["default"].getTypeOf(message), ")"));
       console.log('%c > ', this.styleBlueBg, message);
     }
   }, {
     key: "showOk",
     value: function showOk(message) {
-      console.log("%c ".concat(this.getCurrentTimestamp(), " Ok: "), this.styleGreenBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_0__["default"].getTypeOf(message), ")"));
+      console.log("%c ".concat(this.getCurrentTimestamp(), " Ok: "), this.styleGreenBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_2__["default"].getTypeOf(message), ")"));
       console.log('%c > ', this.styleGreenBg, message);
     }
   }, {
     key: "showError",
     value: function showError(message) {
-      console.log("%c ".concat(this.getCurrentTimestamp(), " Error: "), this.styleRedBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_0__["default"].getTypeOf(message), ")"));
+      console.log("%c ".concat(this.getCurrentTimestamp(), " Error: "), this.styleRedBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_2__["default"].getTypeOf(message), ")"));
       console.log('%c > ', this.styleRedBg, message);
     }
   }, {
     key: "showWarn",
     value: function showWarn(message) {
-      console.log("%c ".concat(this.getCurrentTimestamp(), " Warning: "), this.styleOrangeBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_0__["default"].getTypeOf(message), ")"));
+      console.log("%c ".concat(this.getCurrentTimestamp(), " Warning: "), this.styleOrangeBg, "(".concat(_check_datatype_js__WEBPACK_IMPORTED_MODULE_2__["default"].getTypeOf(message), ")"));
       console.log('%c > ', this.styleOrangeBg, message);
     }
   }]);

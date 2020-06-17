@@ -66,6 +66,7 @@
   "dependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "@babel/runtime": "^7.10.2",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
@@ -115,6 +116,7 @@
     "webpack-stream": "^5.2.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.10.1",
     "expose-loader": "^0.7.5",
     "jquery": "^3.5.1"
   },

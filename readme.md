@@ -4,6 +4,9 @@
 - create theme example 
 - use DOTENV for project https://github.com/motdotla/dotenv
 
+https://starter.silvestar.codes/
+https://github.com/maliMirkec/starter-project
+
 before start run "npm install"
 
 .dblock - @extend .dblock - для всяких :before/:after элементов

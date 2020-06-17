@@ -1,21 +1,8 @@
 import { Logging } from './logging';
 
 export default class Utils {
-  constructor(name) {
-    this.name = name;
+  constructor() {
     this.logging = new Logging();
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  set name(value) {
-    if (value.length < 4) {
-      console.log('Имя слишком короткое.');
-      return;
-    }
-    this._name = value;
   }
 
   log(message) {
@@ -32,10 +19,5 @@ export default class Utils {
 
   warn(message) {
     this.logging.showWarn(message);
-  }
-
-  static exampleStaticLog(message) {
-    Utils.exampleStaticLog('exampleStaticLog');
-    console.log(message);
   }
 }
