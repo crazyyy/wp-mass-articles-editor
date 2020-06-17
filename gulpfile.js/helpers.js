@@ -25,7 +25,15 @@ const proot = () => trim(`${global.config.proot}/`);
 const source = () => trim(`${global.config.proot}/${global.config.src}`);
 
 // Will return root dest folder
-const dist = () => trim(`${global.config.proot}/${global.config.dist}`);
+const dist = () => {
+  if (global.config.wp.run && global.config.wp.theme) {
+    return trim(`${global.config.proot}/wordpress/wp-content/themes/${global.config.wpname}`);
+  }
+  if (global.config.wp.run && global.config.wp.plugin) {
+    return trim(`${global.config.proot}/wordpress/wp-content/plugins/${global.config.wpname}`);
+  }
+  return trim(`${global.config.proot}/${global.config.dist}`);
+};
 
 // Will parse path
 const parse = (p) => p.replace('helpers.proot/', proot())
@@ -56,7 +64,6 @@ const kill = (cb) => {
 const killNow = (cb) => {
   src(proot())
     .pipe(exit());
-
   cb();
 };
 

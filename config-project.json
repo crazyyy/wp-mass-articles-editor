@@ -2,6 +2,8 @@
   "proot": "./",
   "src": "src",
   "dist": "dist",
+  "domain": "wordpress.local",
+  "wpname": "theme-name",
   "sync": {
     "run": true
   },
@@ -13,6 +15,16 @@
     "src": "views",
     "dist": "",
     "minify": false,
+    "lint": true
+  },
+  "wp": {
+    "run": false,
+    "theme": false,
+    "plugin": false,
+    "pug": true,
+    "pug2blade": false,
+    "pug2php": false,
+    "sourcemaps": true,
     "lint": true
   },
   "css": {
@@ -67,5 +79,5 @@
   "gzip": {
     "run": false
   },
-  "yarn": true
+  "yarn": false
 }
